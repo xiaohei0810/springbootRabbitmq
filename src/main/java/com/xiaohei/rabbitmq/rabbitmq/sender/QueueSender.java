@@ -38,6 +38,7 @@ public class QueueSender {
         amqpTemplate.convertAndSend("topicExchange", route, msg);
     }
 
+    // 使用convertAndSend方式发送消息，消息默认就是持久化的.
     public void directSend(String msg) {
         amqpTemplate.convertAndSend("directQueue1", msg);
     }
