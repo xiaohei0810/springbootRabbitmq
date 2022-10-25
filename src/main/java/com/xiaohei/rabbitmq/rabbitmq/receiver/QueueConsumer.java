@@ -39,4 +39,20 @@ public class QueueConsumer {
         System.out.println("消费ss007队列的数据:{}" + message);
     }
 
+    /**
+     * 消费者 消费队列中的消息
+     * @param message
+     */
+    @RabbitListener(queues = "topicQueue1")
+    public void receive3(String message) {
+
+        System.out.println("消费topic1队列的数据:{}" + message);
+    }
+
+    @RabbitListener(queues = "topicQueue2")
+    public void receive4(String message) {
+
+        System.out.println("消费topic2队列的数据:{}" + message);
+    }
+
 }

@@ -30,4 +30,7 @@ public class QueueSender {
         rabbitTemplate.convertAndSend(myQueue.getName(),message);
     }
 
+    public void sendMessageToExchange(String msg, String route) {
+        amqpTemplate.convertAndSend("topicExchange",route,msg);
+    }
 }

@@ -19,10 +19,24 @@ public class RabbitMqController {
     @Autowired
     private QueueSender queueSender;
 
+    /**
+     * 默认交换机和路由方式发送消息
+     * @param msg
+     * @return
+     */
     @GetMapping("/send")
     public String sendMegToMq(@RequestParam String msg) {
         queueSender.sendMessage(msg);
         return "ok";
+    }
+
+    /**
+     * 指定交换机和路由发送消息
+     * @param msg
+     */
+    @GetMapping("/sendToExchange")
+    public void sendMegToExchange(@RequestParam String msg,@RequestParam String route) {
+        queueSender.sendMessageToExchange(msg,route);
     }
 
 }
