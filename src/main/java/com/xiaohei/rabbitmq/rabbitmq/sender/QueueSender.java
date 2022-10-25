@@ -26,11 +26,19 @@ public class QueueSender {
     @Resource
     private AmqpTemplate amqpTemplate;
 
-    public void sendMessage(String message){
-        rabbitTemplate.convertAndSend(myQueue.getName(),message);
+    public void sendMessage(String message) {
+        rabbitTemplate.convertAndSend(myQueue.getName(), message);
     }
 
     public void sendMessageToExchange(String msg, String route) {
-        amqpTemplate.convertAndSend("topicExchange",route,msg);
+        amqpTemplate.convertAndSend("topicExchange", route, msg);
+    }
+
+    public void listener(String msg, String route) {
+        amqpTemplate.convertAndSend("topicExchange", route, msg);
+    }
+
+    public void directSend(String msg) {
+        amqpTemplate.convertAndSend("directQueue1", msg);
     }
 }

@@ -39,4 +39,22 @@ public class RabbitMqController {
         queueSender.sendMessageToExchange(msg,route);
     }
 
+    /**
+     * 消息丢失，监听测试。
+     * @param msg
+     */
+    @GetMapping("/listener")
+    public void listener(@RequestParam String msg,@RequestParam String route) {
+        queueSender.listener(msg,route);
+    }
+
+    /**
+     * 点对点模式发送消息
+     * @param msg
+     */
+    @GetMapping("/directSend")
+    public void directSend(@RequestParam String msg) {
+        queueSender.directSend(msg);
+    }
+
 }

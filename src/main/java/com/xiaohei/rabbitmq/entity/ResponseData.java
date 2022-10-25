@@ -77,12 +77,6 @@ public class ResponseData {
 
     }
 
-//    public ResponseData(HmallExceptionEnum exceptionEnum) {
-//        this.success = false;
-//        this.msgCode = exceptionEnum.getErrorCode();
-//        this.msg = exceptionEnum.getErrorMsg();
-//        this.total = 0;
-//    }
 
     public String getMsgCode() {
         return this.msgCode;
